@@ -1,0 +1,24 @@
+INDEX VERSION 1.131+E:\Spring-tool-suite-file\kafka-demo\.metadata\.plugins\org.eclipse.jdt.core
+4267529931.index
+3274908395.index
+3281564189.index
+65629543.index
+3500630171.index
+4203173746.index
+2897958326.index
+1386920634.index
+3370268320.index
+1215472822.index
+3925217978.index
+2740026044.index
+2838342375.index
+2208203020.index
+564752775.index
+231309521.index
+4162860098.index
+644725345.index
+1256702994.index
+1960539739.index
+2500964971.index
+4185469004.index
+2651143461.index

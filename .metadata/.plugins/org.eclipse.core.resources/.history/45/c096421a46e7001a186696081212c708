@@ -1,0 +1,44 @@
+package com.kafka.kafka_demo;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Properties;
+
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+
+public class MyConsumer {
+
+	public static void main(String[] args) {
+		
+		Properties properties = new Properties();
+		properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.167.105:9092");
+		//开启自动提交
+		properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, true);
+		//自动提交的延时
+		properties.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, "1000");
+		
+		properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,  "org.apache.kafka.common.serialization.StringSerializer");
+		properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,  "org.apache.kafka.common.serialization.StringSerializer");
+		//消费者组
+		properties.put(ConsumerConfig.GROUP_ID_CONFIG, "kin");
+		
+		
+		KafkaConsumer< String, String> consumer = new KafkaConsumer<String, String>(properties);
+		
+		//可以订阅多个主题
+		
+		consumer.subscribe(Arrays.asList("first","kfp-test-c"));
+		
+		ConsumerRecords<String, String> consumerRecords = consumer.poll(100);
+		
+		for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
+			System.out.println(consumerRecord.key()+"---"+consumerRecord.value());
+		}
+		
+		consumer.close();
+	}
+
+}

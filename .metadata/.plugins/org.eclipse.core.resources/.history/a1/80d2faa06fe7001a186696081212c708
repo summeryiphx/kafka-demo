@@ -1,0 +1,10 @@
+package com.kafka.kafka_demo;
+
+public class CounterInterceptor {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
